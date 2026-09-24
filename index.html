@@ -16,40 +16,43 @@
   --sans:"Manrope","Segoe UI",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:70px}
-body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.7;font-size:1.02rem;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.7;font-size:1.02rem;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 28px}
 
-header{position:sticky;top:0;z-index:10;background:rgba(10,26,51,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,164,90,.25)}
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(10,26,51,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(200,164,90,.25)}
 header .wrap{display:flex;justify-content:space-between;align-items:center;height:62px}
-.mark{font-family:var(--serif);font-size:1.15rem;color:#fff;text-decoration:none}
+.mark{font-family:var(--serif);font-size:1.15rem;color:#fff;text-decoration:none;white-space:nowrap}
 nav{display:flex;gap:28px}
 nav a{color:#C3D0E4;text-decoration:none;font-size:.92rem;font-weight:500;padding:4px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
 nav a:hover{color:#fff;border-color:var(--gold)}
+.menu-btn{display:none;background:none;border:1px solid rgba(200,164,90,.6);color:#fff;font:600 .9rem var(--sans);padding:8px 16px;border-radius:2px;cursor:pointer}
 
 /* hero */
 .hero{color:#fff;background:radial-gradient(900px 520px at 82% 25%,#21427A 0%,transparent 65%),radial-gradient(700px 400px at 0% 100%,#132F5A 0%,transparent 70%),var(--midnight)}
-.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:56px;align-items:center;padding:96px 28px 80px}
-.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(3.2rem,9vw,6.6rem);line-height:.98;letter-spacing:-.025em}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:56px;align-items:center;padding-top:96px;padding-bottom:80px}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(2.5rem,10.5vw,6.4rem);line-height:1;letter-spacing:-.025em}
 .hero h1 em{display:block;font-style:normal;font-weight:500;color:var(--gold)}
 .role{margin-top:26px;font-size:1.1rem;color:#C3D0E4;max-width:36ch}
 .actions{margin-top:36px;display:flex;flex-wrap:wrap;gap:14px}
-.btn{padding:14px 28px;border-radius:2px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid var(--gold);transition:background .2s,color .2s}
+.btn{padding:14px 28px;border-radius:2px;font-weight:600;font-size:.95rem;text-decoration:none;text-align:center;border:1px solid var(--gold);transition:background .2s,color .2s}
 .btn.solid{background:var(--gold);color:var(--midnight)}
 .btn.solid:hover{background:#DCBE7A}
 .btn.line{color:#fff}
 .btn.line:hover{background:rgba(200,164,90,.16)}
 .portrait{position:relative;justify-self:center;width:min(100%,290px)}
 .portrait::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:1px solid var(--gold);border-radius:999px 999px 4px 4px}
-.portrait img{position:relative;display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:999px 999px 4px 4px;background:#E8EEF6}
+.portrait img{position:relative;display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:999px 999px 4px 4px;background:#E8EEF6}
 .hero-grid>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
 .hero-grid>.portrait{animation-delay:.18s}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
 .facts{border-top:1px solid rgba(255,255,255,.14)}
-.facts .wrap{display:grid;grid-template-columns:repeat(3,1fr)}
+.facts .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
 .facts div{padding:26px 24px 30px 0}
 .facts div+div{padding-left:24px;border-left:1px solid rgba(255,255,255,.14)}
 .facts small{display:block;color:#9FB2CD;font-size:.85rem}
@@ -58,20 +61,20 @@ nav a:hover{color:#fff;border-color:var(--gold)}
 /* sections */
 section{padding:96px 0}
 section.tint{background:var(--porcelain)}
-.row{display:grid;grid-template-columns:200px 1fr;gap:28px 64px}
+.row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px 64px}
 .row>h2{font-family:var(--serif);font-weight:500;font-size:1.5rem;color:var(--gold-deep);line-height:1.2}
-.lead{font-family:var(--serif);font-weight:300;font-size:clamp(1.55rem,3.2vw,2.15rem);line-height:1.3;letter-spacing:-.01em;max-width:24em;color:var(--midnight)}
+.lead{font-family:var(--serif);font-weight:300;font-size:clamp(1.45rem,4.2vw,2.15rem);line-height:1.3;letter-spacing:-.01em;max-width:24em;color:var(--midnight)}
 .prose{max-width:60ch;margin-top:28px;color:var(--muted)}
 .prose p+p{margin-top:16px}
 
-.entry{display:grid;grid-template-columns:170px 1fr;gap:6px 32px;padding:28px 0;border-top:1px solid var(--line)}
+.entry{display:grid;grid-template-columns:190px minmax(0,1fr);gap:6px 32px;padding:28px 0;border-top:1px solid var(--line)}
 .entry:last-child{border-bottom:1px solid var(--line)}
 .entry .when{color:var(--muted);font-size:.93rem}
 .entry h3{font-family:var(--serif);font-weight:500;font-size:1.3rem;line-height:1.3;color:var(--midnight)}
 .entry .where{color:var(--gold-deep);font-weight:600;font-size:.97rem}
 .entry p{margin-top:10px;color:var(--muted);max-width:56ch}
 
-.skills{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
 .skills h3{font-family:var(--serif);font-weight:500;font-size:1.2rem;color:var(--midnight);margin-bottom:10px}
 .skills ul{list-style:none}
 .skills li{padding:12px 0;border-top:1px solid var(--line)}
@@ -82,26 +85,48 @@ section.tint{background:var(--porcelain)}
 .contact .row>h2{color:var(--gold)}
 .contact .lead{color:#fff}
 .contact-list{list-style:none;margin-top:40px}
-.contact-list li{display:grid;grid-template-columns:110px 1fr;gap:8px 20px;padding:18px 0;border-top:1px solid rgba(255,255,255,.16)}
+.contact-list li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:8px 20px;padding:18px 0;border-top:1px solid rgba(255,255,255,.16)}
 .contact-list span{color:#9FB2CD;font-size:.93rem}
-.contact-list a{text-decoration:none;font-family:var(--serif);font-size:1.25rem;overflow-wrap:anywhere;border-bottom:1px solid transparent;justify-self:start}
+.contact-list a{text-decoration:none;font-family:var(--serif);font-size:clamp(1.05rem,4.6vw,1.25rem);overflow-wrap:anywhere;border-bottom:1px solid transparent;justify-self:start}
 .contact-list a:hover{border-color:var(--gold);color:var(--gold)}
 .contact p.note{margin-top:20px;color:#9FB2CD;max-width:46ch}
 footer{background:#071326;color:#8497B4;padding:22px 0;font-size:.88rem}
 
+/* tablet */
+@media (max-width:1000px){
+  .row{grid-template-columns:150px minmax(0,1fr);gap:28px 40px}
+  .entry{grid-template-columns:150px minmax(0,1fr);gap:6px 24px}
+  .hero-grid{gap:40px}
+}
+
+/* small tablet and phone: stack layout, use menu button */
 @media (max-width:860px){
-  .hero-grid{grid-template-columns:1fr;gap:64px;padding:56px 28px 56px}
-  .portrait{order:-1;justify-self:start;margin-left:14px;width:min(68%,230px)}
-  .facts .wrap{grid-template-columns:1fr}
+  .menu-btn{display:block}
+  nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;padding:6px 28px 14px;background:var(--midnight);border-bottom:1px solid rgba(200,164,90,.25)}
+  nav.open{display:flex}
+  nav a{padding:14px 0;font-size:1rem;border-bottom:1px solid rgba(255,255,255,.1)}
+  .hero-grid{grid-template-columns:minmax(0,1fr);gap:56px;padding-top:48px;padding-bottom:56px}
+  .portrait{order:-1;justify-self:start;margin-left:14px;width:min(68%,240px)}
+  .facts .wrap{grid-template-columns:minmax(0,1fr)}
   .facts div,.facts div+div{padding:18px 0;border-left:0}
   .facts div+div{border-top:1px solid rgba(255,255,255,.14)}
   section{padding:68px 0}
-  .row{grid-template-columns:1fr}
-  .entry{grid-template-columns:1fr}
-  .skills{grid-template-columns:1fr}
-  nav{gap:18px}
+  .row{grid-template-columns:minmax(0,1fr)}
+  .entry{grid-template-columns:minmax(0,1fr)}
+  .skills{grid-template-columns:minmax(0,1fr);gap:32px}
 }
-@media (max-width:520px){ nav a:nth-child(n+4){display:none} .contact-list li{grid-template-columns:1fr} }
+
+/* small phones */
+@media (max-width:480px){
+  .wrap{padding:0 20px}
+  nav{padding-left:20px;padding-right:20px}
+  section{padding:56px 0}
+  .portrait{width:min(72%,210px)}
+  .actions{flex-direction:column}
+  .btn{width:100%}
+  .contact-list li{grid-template-columns:minmax(0,1fr);gap:2px}
+}
+
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .hero-grid>*{animation:none}
@@ -114,7 +139,8 @@ footer{background:#071326;color:#8497B4;padding:22px 0;font-size:.88rem}
 <header>
   <div class="wrap">
     <a class="mark" href="#top">Kim Dave Badaran</a>
-    <nav aria-label="Main">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" aria-label="Main">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
@@ -253,6 +279,16 @@ footer{background:#071326;color:#8497B4;padding:22px 0;font-size:.88rem}
 <footer>
   <div class="wrap">© <span id="yr">2026</span> Kim Dave H. Badaran</div>
 </footer>
-<script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
+
+<script>
+document.getElementById("yr").textContent=new Date().getFullYear();
+(function(){
+  var b=document.querySelector(".menu-btn"),n=document.getElementById("site-nav");
+  function set(open){n.classList.toggle("open",open);b.setAttribute("aria-expanded",open);b.textContent=open?"Close":"Menu";}
+  b.addEventListener("click",function(){set(!n.classList.contains("open"));});
+  n.addEventListener("click",function(e){if(e.target.tagName==="A")set(false);});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")set(false);});
+})();
+</script>
 </body>
 </html>
